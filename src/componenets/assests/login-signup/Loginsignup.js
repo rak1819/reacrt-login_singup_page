@@ -7,7 +7,7 @@ export default function Loginsignup() {
     const[action,setaction] = useState("Login");
   return (
     <div className='Container'>
-        <div className="header">
+        <div className={action==="Login"?"header logintext":"header"}>
             <div className="text">{action}</div>
             <div className="underline"> </div>
         </div>
@@ -26,9 +26,10 @@ export default function Loginsignup() {
                 <input type="password" placeholder='password' name="" id="" />
             </div>
         </div>
-        <div className="forget-password">Lost Password ?<span>Click Here</span></div>
+        {action==="Signup"?<div></div>:<div className="forget-password">Lost Password ?<span>Click Here</span></div>}
+        
         <div className="submit_container">
-            <div className={action==="Login"?"submit grey":"submit"} onClick={()=>{setaction("Signup")}}>signup</div>
+            <div className={action==="Login"?"submit grey ":"submit"} onClick={()=>{setaction("Signup")}}>signup</div>
             <div className={action==="Signup"?"submit grey":"submit"} onClick ={()=>{setaction("Login")}}>Login</div>
         </div>
     </div>
